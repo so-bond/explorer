@@ -1,6 +1,6 @@
 {
-  "_webfontloader-390c3ae5.js": {
-    "file": "assets/webfontloader-390c3ae5.js",
+  "_webfontloader-caef32fa.js": {
+    "file": "assets/webfontloader-caef32fa.js",
     "imports": [
       "index.html"
     ],
@@ -21,11 +21,11 @@
       "assets/index-5bfb2cc9.css"
     ],
     "dynamicImports": [
-      "_webfontloader-390c3ae5.js",
+      "_webfontloader-caef32fa.js",
       "src/layouts/default/Default.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-9f3b0e51.js",
+    "file": "assets/index-e841b02f.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -46,7 +46,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-ec633e94.js",
+    "file": "assets/Default-14312d0e.js",
     "imports": [
       "index.html"
     ],
@@ -54,7 +54,7 @@
     "src": "src/layouts/default/Default.vue"
   },
   "src/views/Home.vue": {
-    "file": "assets/Home-4d6c68f8.js",
+    "file": "assets/Home-5431807e.js",
     "imports": [
       "index.html"
     ],
