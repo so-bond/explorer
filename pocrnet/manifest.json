@@ -1,0 +1,69 @@
+{
+  "_webfontloader-2e0db3cb.js": {
+    "file": "assets/webfontloader-2e0db3cb.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true
+  },
+  "index.css": {
+    "file": "assets/index-ce29b6b6.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "assets/so-bond-23c49593.svg",
+      "assets/materialdesignicons-webfont-861aea05.eot",
+      "assets/materialdesignicons-webfont-e52d60f6.woff2",
+      "assets/materialdesignicons-webfont-48d3eec6.woff",
+      "assets/materialdesignicons-webfont-bd725a7a.ttf"
+    ],
+    "css": [
+      "assets/index-ce29b6b6.css"
+    ],
+    "dynamicImports": [
+      "_webfontloader-2e0db3cb.js",
+      "src/layouts/default/Default.vue",
+      "src/views/Home.vue"
+    ],
+    "file": "assets/index-b67054f9.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-861aea05.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-bd725a7a.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-48d3eec6.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-e52d60f6.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "src/assets/so-bond.svg": {
+    "file": "assets/so-bond-23c49593.svg",
+    "src": "src/assets/so-bond.svg"
+  },
+  "src/layouts/default/Default.vue": {
+    "file": "assets/Default-cef23d62.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/layouts/default/Default.vue"
+  },
+  "src/views/Home.vue": {
+    "file": "assets/Home-b7accf08.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/views/Home.vue"
+  }
+}
