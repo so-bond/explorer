@@ -4,4 +4,5 @@ window.AppConfig = {
   // rpcUrl: "wss://pocrnet.westeurope.cloudapp.azure.com/ws",
   // fromBlock: 0,
   fromBlock: 3335007,
+  explorerUrl: "https://ethereum-pocr.github.io/explorer/kerleano",
 };

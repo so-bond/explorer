@@ -10,15 +10,16 @@ import { cleanReturnValues, hexToString } from "./utils";
 export * from "./types";
 
 const ContractNames = {
-  Register: "Register",
+  IRegister: "IRegister",
   ITrade: "ITrade",
   ICoupon: "ICoupon",
+  ICouponSnapshotManagement: "ICouponSnapshotManagement",
 }
 
 const ZeroAddress = "0x0000000000000000000000000000000000000000";
 
 export function getRegisterContract() {
-  return AllContracts.get(ContractNames.Register)
+  return AllContracts.get(ContractNames.IRegister)
 }
 
 export function getTradeContract() {
@@ -27,6 +28,10 @@ export function getTradeContract() {
 
 export function getCouponContract() {
   return AllContracts.get(ContractNames.ICoupon)
+}
+
+export function getSnapshotContract() {
+  return AllContracts.get(ContractNames.ICouponSnapshotManagement)
 }
 
 
@@ -100,9 +105,13 @@ export async function listRegisters(): Promise<RegisterId[]> {
 
 export async function getRegisterDetails(address: string): Promise<RegisterDetails> {
   const register = getRegisterContract().at(address);
-  const [status, data] = await Promise.all([
+  const snapshot = getSnapshotContract().at(address);
+  const [status, data, totalSupply, currentTimestamp, currentCoupon] = await Promise.all([
     register.status(intf().call()),
     register.getBondData(intf().call()),
+    register.totalSupply(intf().call()),
+    snapshot.currentSnapshotDatetime(intf().call()),
+    snapshot.currentCouponDate(intf().call()),
   ]);
 
   return {
@@ -111,14 +120,17 @@ export async function getRegisterDetails(address: string): Promise<RegisterDetai
     name: data.name,
     isin: data.isin,
     expectedSupply: Number.parseInt(data.expectedSupply),
+    currentSupply: Number.parseInt(totalSupply),
     currency: hexToString(data.currency),
     unitValue: Number.parseInt(data.unitValue),
-    couponRate: Number.parseInt(data.couponRate),
+    couponRate: Number.parseInt(data.couponRate) / 10000,
     creationDate: new Date(Number.parseInt(data.creationDate) * 1000),
     issuanceDate: new Date(Number.parseInt(data.issuanceDate) * 1000),
     maturityDate: new Date(Number.parseInt(data.maturityDate) * 1000),
     couponDates: data.couponDates.map((d: string) => new Date(Number.parseInt(d) * 1000)),
     cutOffTime: new Date(Number.parseInt(data.cutOffTime) * 1000),
+    currentSnapshotTimestamp: new Date(Number.parseInt(currentTimestamp) * 1000),
+    currentCouponDate: new Date(Number.parseInt(currentCoupon) * 1000),
   }
 }
 

@@ -12,6 +12,7 @@ export interface RegisterId {
 
 export interface RegisterDetails extends RegisterId {
   expectedSupply: number;
+  currentSupply: number;
   currency: string;
   unitValue: number;
   couponRate: number;
@@ -20,7 +21,8 @@ export interface RegisterDetails extends RegisterId {
   maturityDate: Date;
   couponDates: Date[];
   cutOffTime: Date;
-
+  currentSnapshotTimestamp: Date;
+  currentCouponDate: Date;
 }
 
 export interface DecodedEvent {

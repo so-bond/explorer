@@ -1,7 +1,8 @@
 <script setup lang="ts">
-  import { to1000s, toDate, toTime } from '@/lib/utils';
+  import { to1000s, toDate, toDateTime, toTime } from '@/lib/utils';
   import { RegisterStatus, RegisterDetails, getRegisterDetails, DecodedEvent, loadEventsForRegister, InvestorInfo, getRegisterInvestors } from '@/lib';
   import { Ref, ref, watch } from 'vue';
+  import expl from "@/components/ExplorerRedirect.vue"
 
   const props = defineProps({
     address: String,
@@ -15,7 +16,11 @@
       details.value = await getRegisterDetails(address);
       events.value = await loadEventsForRegister(address);
       investors.value = await getRegisterInvestors(address);
-    } else details.value = undefined;
+    } else {
+      details.value = undefined;
+      events.value = [];
+      investors.value = [];
+    }
   })
 
 </script>
@@ -23,7 +28,7 @@
 <template>
   <div v-if="details">
     <v-card v-if="details">
-      <v-card-subtitle>address: {{ address }}</v-card-subtitle>
+      <v-card-subtitle>address: {{ address }}<expl type="token" :id="address"/> </v-card-subtitle>
       <v-card-text>
         <v-row>
           <v-col cols="2">Name:</v-col>
@@ -34,6 +39,10 @@
           <v-col cols="4">{{ to1000s(details.expectedSupply) }} x {{ to1000s(details.unitValue) }} {{ details.currency }}</v-col>
           <v-col cols="2">Supply expected:</v-col>
           <v-col cols="4">{{ to1000s(details.expectedSupply * details.unitValue) }} {{ details.currency }}</v-col>
+          <v-col cols="2">Coupon rate:</v-col>
+          <v-col cols="4">{{ details.couponRate }} % p.a.</v-col>
+          <v-col cols="2">Current supply:</v-col>
+          <v-col cols="4">{{ to1000s(details.currentSupply * details.unitValue) }} {{ details.currency }}</v-col>
           <v-col cols="2">Status:</v-col>
           <v-col cols="4">{{ RegisterStatus[details.status] }}</v-col>
           <v-col cols="2">Creation:</v-col>
@@ -46,6 +55,10 @@
           <v-col cols="4">{{ details.couponDates.map(d=> toDate(d)).join(' | ') }}</v-col>
           <v-col cols="2">Record time:</v-col>
           <v-col cols="4">{{ toTime(details.cutOffTime) }}</v-col>
+          <v-col cols="2">Next coupon date:</v-col>
+          <v-col cols="4">{{ toDate(details.currentCouponDate) }}</v-col>
+          <v-col cols="2">Next snapshot at:</v-col>
+          <v-col cols="4">{{ toDateTime(details.currentSnapshotTimestamp) }}</v-col>
         </v-row>
       </v-card-text>
     </v-card>
@@ -90,7 +103,7 @@
             </thead>
             <tbody>
               <tr v-for="event of events" :key="event.id">
-                <td class="text-caption" style="width: 85px; vertical-align: top;">{{ event.blockNumber }} / {{ event.logIndex }}</td>
+                <td class="text-caption" style="width: 85px; vertical-align: top;"><expl type="block" :id="event.blockNumber" >{{ event.blockNumber }}</expl> / {{ event.logIndex }}</td>
                 <td class="text-caption">{{ event.display }}</td>
               </tr>
             </tbody>

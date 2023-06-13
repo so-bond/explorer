@@ -14,12 +14,15 @@ export function to1000s(v: number, decimals: number=0): string {
 }
 
 export function toDateTime(dt: Date): string {
+  if (dt.valueOf() === 0) return 'N/A';
   return dt.toLocaleString('en-US', {dateStyle: 'medium', timeStyle: 'medium'})
 }
 export function toDate(dt: Date): string {
+  if (dt.valueOf() === 0) return 'N/A';
   return dt.toLocaleDateString('en-US', {dateStyle: 'long', timeZone: 'UTC'})
 }
 export function toTime(dt: Date): string {
+  if (dt.valueOf() === 0) return 'N/A';
   // force the time to be used with the current date to avoid timezone issues
   const time = dt.valueOf() % (24*60*60*1000);
   const  date = Date.now();
