@@ -1,8 +1,7 @@
 // Plugins
 import vue from '@vitejs/plugin-vue'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-
+import nodePolyfills from 'vite-plugin-node-stdlib-browser'
 // Utilities
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
@@ -17,13 +16,9 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
+    nodePolyfills()
   ],
-  define: { 'process.env': {}, global: {} },
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [NodeGlobalsPolyfillPlugin({buffer: true})],
-    },
-  },
+  define: { 'process.env': {}, "window.global": {},  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

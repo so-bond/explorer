@@ -113,7 +113,6 @@ export async function getRegisterDetails(address: string): Promise<RegisterDetai
 export async function loadEventsForRegister(address: string): Promise<DecodedEvent[]> {
   const register = getRegisterContract().at(address);
   const events: EventData[] = await loadEvents(register.allEvents, fromBlock(), {});
-  console.log("events", events);
   
   
   function objToDisplay(obj: any): string {
