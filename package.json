@@ -8,12 +8,17 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@mdi/font": "7.0.96",
+    "@saturn-chain/dlt-tx-data-functions": "^1.0.9",
+    "@saturn-chain/smart-contract": "^1.0.19",
+    "@saturn-chain/web3-functions": "^1.0.13",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",
+    "web3-eth-contract": "1.7",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
