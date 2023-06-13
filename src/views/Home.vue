@@ -17,11 +17,14 @@
 <script lang="ts" setup>
   import RegisterDetails from "@/components/RegisterDetails.vue";
   import {useAppStore} from "@/store/app";
-  import { computed } from "vue";
+  import { computed, onMounted } from "vue";
 
   // initiatlize the store
   const store = useAppStore();
-  store.loadRegisters();
+
+  onMounted(() => {
+    store.loadRegisters();
+  });
 
   // create data fields
 
