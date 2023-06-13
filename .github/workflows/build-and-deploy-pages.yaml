@@ -23,6 +23,7 @@ jobs:
           cp -R dist content/pocrnet
           mv content/kerleano/config-kerleano.js content/kerleano/config.js
           mv content/pocrnet/config-pocrnet.js content/pocrnet/config.js
+          cp html/* content/
       - uses: actions/cache@v3
         with:
           path: content
