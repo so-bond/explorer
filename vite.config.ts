@@ -33,6 +33,10 @@ export default defineConfig({
       '.vue',
     ],
   },
+  build: {
+    manifest: true,
+  },
+  base: './',
   server: {
     port: 3000,
   },
