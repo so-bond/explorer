@@ -10,7 +10,7 @@ import { cleanReturnValues, hexToString } from "./utils";
 export * from "./types";
 
 const ContractNames = {
-  IRegister: "IRegister",
+  Register: "Register",
   ITrade: "ITrade",
   ICoupon: "ICoupon",
   ICouponSnapshotManagement: "ICouponSnapshotManagement",
@@ -19,7 +19,7 @@ const ContractNames = {
 const ZeroAddress = "0x0000000000000000000000000000000000000000";
 
 export function getRegisterContract() {
-  return AllContracts.get(ContractNames.IRegister)
+  return AllContracts.get(ContractNames.Register)
 }
 
 export function getTradeContract() {
