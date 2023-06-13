@@ -8,7 +8,7 @@
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-img inline :width="100" 
-        src="@/assets/so-bond.svg"
+        src="https://raw.githubusercontent.com/so-bond/.github/main/images/so%7Cbond.svg"
       ></v-img>
       <v-toolbar-title> explorer</v-toolbar-title>
 
