@@ -1,5 +1,5 @@
 // Utilities
-import { listRegisters, RegisterId } from '@/lib'
+import { awaitInitialization, listRegisters, RegisterId } from '@/lib'
 import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', {
@@ -11,6 +11,7 @@ export const useAppStore = defineStore('app', {
 
   actions: {
     async loadRegisters() {
+      await awaitInitialization(3000);
       const l = await listRegisters();
       this.registers = l;
     },

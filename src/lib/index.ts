@@ -40,6 +40,18 @@ function _intf(): EthProviderInterface|undefined {
   return i;
 }
 
+const awaitingSteps= 10;
+export async function awaitInitialization(timeout: number) {
+  const w: any = window;
+  if (!w.AppConfig) { // Not initialized yet
+    if (timeout <= 0) throw new Error("Timeout waiting for initialization");
+    console.log("Waiting for initialization...", timeout, "max");
+    await new Promise((resolve) => setTimeout(resolve, awaitingSteps));
+    await awaitInitialization(timeout - awaitingSteps);
+  } else console.log("Initialization complete", timeout, "remaining");
+  
+}
+
 function fromBlock(): number {
   const w: any = window;
   if (!w.AppConfig || !w.AppConfig.fromBlock) {
