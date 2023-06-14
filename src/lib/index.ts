@@ -184,7 +184,7 @@ export async function listTrades(): Promise<TradeBase[]> {
       status: Number.parseInt(ev.returnValues.status),
       seller: ev.returnValues.seller,
       buyer: ev.returnValues.buyer,
-      quantity: ev.returnValues.quantity
+      quantity: Number.parseInt(ev.returnValues.quantity)
     }
   }
   const array = Object.values(trades);

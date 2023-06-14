@@ -27,8 +27,19 @@
             :loading="loading" :items-length="100"
             
           >
+          <template v-slot:item.register="{item}">
+            <router-link :to="`register/${item.value.register}`">{{ ellipsisAddress(item.value.register) }}</router-link>
+          </template>
+          <template v-slot:item.actors="{item}">
+            <div class="text-no-wrap">seller: {{ ellipsisAddress(item.value.seller) }}</div>
+            <div class="text-no-wrap">buyer: {{ ellipsisAddress(item.value.buyer) }}</div>
+          </template>
           <template v-slot:item.address="{item}">
-            <span :class="item.value.approvedInRegister?'':'striked'">{{ item.value.address }}</span>
+            <div class="text-no-wrap">address: {{ ellipsisAddress(item.value.address) }}</div>
+            <div class="text-no-wrap" :class="item.value.approvedInRegister?'':'striked'">hash: {{ ellipsisCodehash(item.value.codehash) }}</div>
+          </template>
+          <template v-slot:item.quantity="{item}">
+            <span>{{ to1000s(item.value.quantity) }}</span>
           </template>
           </VDataTableServer>
         </v-expansion-panel-text>
@@ -48,6 +59,8 @@
   import router from "@/router";
   import {useAppStore} from "@/store/app";
   import { computed, onMounted, ref } from "vue";
+  import { to1000s, ellipsisAddress, ellipsisCodehash } from "@/lib/utils";
+  import { DataTableHeader } from "@/lib/vuetify-types";
 
   // initiatlize the store
   const store = useAppStore();
@@ -60,12 +73,13 @@
   // create data fields
   const loading = ref(true);
   const registerNames = computed(() => store.registers.map((r) => ({display: `${r.name} - (${r.isin})`, address: r.address})))
-  const tradeHeaders = [
+  const tradeHeaders : DataTableHeader[] = [
     { title: "register", key: "register"},
-    { title: "seller", key: "seller"},
-    { title: "buyer", key: "buyer"},
-    { title: "quantity", key: "quantity"},
-    { title: "address", key: "address"},
+    { title: "buyer/seller", key: "actors"},
+    // { title: "seller", key: "seller"},
+    // { title: "buyer", key: "buyer"},
+    { title: "quantity", key: "quantity", align: "end"},
+    { title: "trade", key: "address"},
   ]
 
   // Functions

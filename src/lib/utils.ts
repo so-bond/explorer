@@ -38,3 +38,17 @@ export function cleanReturnValues(obj: any): any {
   }
   return ret;
 }
+
+// function to force the size of a string by adding ... in the middle
+export function ellipsis(str: string, size: number): string {
+  if (str.length <= size) return str;
+  if (size < 8) return str;
+  return str.slice(0, size-4-3) + "..." + str.slice(-4);
+}
+
+export function ellipsisAddress(address: string): string {
+  return ellipsis(address, 13);
+}
+export function ellipsisCodehash(hash: string): string {
+  return ellipsis(hash, 17);
+}

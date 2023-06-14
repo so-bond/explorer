@@ -19,8 +19,8 @@ export const useAppStore = defineStore('app', {
       
     },
     async loadTrades() {
-      await awaitInitialization();
       if (this.trades.length==0) {
+        await awaitInitialization();
         this.trades = await listTrades();
       }
     }
