@@ -3,27 +3,16 @@
     "file": "assets/VExpansionPanel-76edd37a.css",
     "src": "VExpansionPanel.css"
   },
-  "_VExpansionPanel-c36f1704.js": {
+  "_VExpansionPanel-393e64e2.js": {
     "css": [
       "assets/VExpansionPanel-76edd37a.css"
     ],
-    "file": "assets/VExpansionPanel-c36f1704.js",
+    "file": "assets/VExpansionPanel-393e64e2.js",
     "imports": [
       "index.html"
     ]
   },
-  "_webfontloader-855504a5.js": {
-    "file": "assets/webfontloader-855504a5.js",
-    "imports": [
-      "index.html"
-    ],
-    "isDynamicEntry": true
-  },
-  "index.css": {
-    "file": "assets/index-d0a8fd0f.css",
-    "src": "index.css"
-  },
-  "index.html": {
+  "_index-681a1f42.js": {
     "assets": [
       "assets/materialdesignicons-webfont-861aea05.eot",
       "assets/materialdesignicons-webfont-e52d60f6.woff2",
@@ -31,15 +20,39 @@
       "assets/materialdesignicons-webfont-bd725a7a.ttf"
     ],
     "css": [
-      "assets/index-d0a8fd0f.css"
+      "assets/index-54d0f776.css"
     ],
     "dynamicImports": [
-      "_webfontloader-855504a5.js",
+      "_webfontloader-a0cf1686.js",
       "src/layouts/default/Default.vue",
       "src/views/Register.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-99f4481d.js",
+    "file": "assets/index-681a1f42.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true
+  },
+  "_webfontloader-a0cf1686.js": {
+    "file": "assets/webfontloader-a0cf1686.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true
+  },
+  "index.css": {
+    "file": "assets/index-54d0f776.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "css": [
+      "assets/index-366b9db6.css"
+    ],
+    "dynamicImports": [
+      "_index-681a1f42.js"
+    ],
+    "file": "assets/index-272744bb.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -60,8 +73,9 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-e298f7ce.js",
+    "file": "assets/Default-b05a2dbb.js",
     "imports": [
+      "_index-681a1f42.js",
       "index.html"
     ],
     "isDynamicEntry": true,
@@ -75,10 +89,11 @@
     "css": [
       "assets/Home-06465182.css"
     ],
-    "file": "assets/Home-af335e33.js",
+    "file": "assets/Home-6b22cfbf.js",
     "imports": [
+      "_index-681a1f42.js",
       "index.html",
-      "_VExpansionPanel-c36f1704.js"
+      "_VExpansionPanel-393e64e2.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
@@ -91,10 +106,11 @@
     "css": [
       "assets/Register-69948682.css"
     ],
-    "file": "assets/Register-f9f25834.js",
+    "file": "assets/Register-4ff4efda.js",
     "imports": [
-      "_VExpansionPanel-c36f1704.js",
-      "index.html"
+      "index.html",
+      "_VExpansionPanel-393e64e2.js",
+      "_index-681a1f42.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Register.vue"
