@@ -5,5 +5,8 @@
 </template>
 
 <script lang="ts" setup>
+  import { useRoute } from 'vue-router';
+
   //
+  console.log("Default.vue", useRoute().name);
 </script>

@@ -8,14 +8,16 @@
       v-model="store.selectedRegister"
       label="Select a register"
       clearable
+      @update:modelValue="goToRegister"
       >
     </v-autocomplete>
-    <RegisterDetails :address="store.selectedRegister" />
+    <!-- <RegisterDetails :address="store.selectedRegister" /> -->
   </v-container>
 </template>
 
 <script lang="ts" setup>
-  import RegisterDetails from "@/components/RegisterDetails.vue";
+  // import RegisterDetails from "@/components/RegisterDetails.vue";
+  import router from "@/router";
   import {useAppStore} from "@/store/app";
   import { computed, onMounted } from "vue";
 
@@ -23,6 +25,7 @@
   const store = useAppStore();
 
   onMounted(() => {
+    console.log("Home.vue mounted");
     store.loadRegisters();
   });
 
@@ -32,7 +35,8 @@
 
   // Functions
 
-  // function whenClicked() {
-  //   console.log("clicked", {...store.registers});
-  // }
+  function goToRegister() {
+    if (store.selectedRegister) router.push(`/register/${store.selectedRegister}`)
+    store.selectedRegister=undefined;
+  }
 </script>

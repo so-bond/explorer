@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { to1000s, toDate, toDateTime, toTime } from '@/lib/utils';
   import { RegisterStatus, RegisterDetails, getRegisterDetails, DecodedEvent, loadEventsForRegister, InvestorInfo, getRegisterInvestors } from '@/lib';
-  import { Ref, ref, watch } from 'vue';
+  import { Ref, onMounted, ref, watch } from 'vue';
   import expl from "@/components/ExplorerRedirect.vue"
 
   const props = defineProps({
@@ -10,18 +10,39 @@
   const details: Ref<RegisterDetails|undefined> = ref(undefined);
   const events: Ref<DecodedEvent[]> = ref([]);
   const investors: Ref<InvestorInfo[]> = ref([]);
+  const message: Ref<string> = ref('');
 
-  watch(()=>props.address, async (address) => {
-    if (address) {
-      details.value = await getRegisterDetails(address);
-      events.value = await loadEventsForRegister(address);
-      investors.value = await getRegisterInvestors(address);
-    } else {
+  const loadRegister = async (address: string|undefined) => {
+    message.value = '';
+    try {
+      if (address) {
+        details.value = await getRegisterDetails(address);
+        events.value = await loadEventsForRegister(address);
+        investors.value = await getRegisterInvestors(address);
+      } else {
+        details.value = undefined;
+        events.value = [];
+        investors.value = [];
+        message.value = "No register selected";
+      }
+    } catch (error) {
+      console.log("Exception when loading the register", error);
+      
       details.value = undefined;
       events.value = [];
       investors.value = [];
+      message.value = (error as Error).message
     }
-  })
+  };
+
+  watch(()=>props.address,async (address) => {
+    await loadRegister(address as string)
+  });
+
+  onMounted(() => {
+    loadRegister(props.address)
+  });
+
 
 </script>
 
@@ -113,7 +134,7 @@
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
-  <div v-else>No register selected</div>
+  <div v-else>{{ message }}</div>
 </template>
 
 <style scoped>
