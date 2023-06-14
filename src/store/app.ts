@@ -13,14 +13,12 @@ export const useAppStore = defineStore('app', {
 
   actions: {
     async loadRegisters() {
-      await awaitInitialization();
       const l = await listRegisters();
       this.registers = l;
       
     },
     async loadTrades() {
       if (this.trades.length==0) {
-        await awaitInitialization();
         this.trades = await listTrades();
       }
     }

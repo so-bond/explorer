@@ -1,4 +1,5 @@
 // Composables
+import { basePath } from '@/lib';
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -27,7 +28,9 @@ const routes = [
     ],
   },
   {
-    path: '/:any', redirect: () => {
+    path: '/:any+', redirect: () => {
+      console.log("Default path. redirecting to /");
+      
       return { 
         path:'/', 
         // query:{path: to.params.any}
@@ -35,9 +38,11 @@ const routes = [
     }
   }
 ]
+console.log("BasePath", basePath());
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(basePath()),
+
   routes,
 })
 

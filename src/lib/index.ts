@@ -65,6 +65,14 @@ function fromBlock(): number {
   return w.AppConfig.fromBlock;
 }
 
+export function basePath(): string {
+  const w: any = window;
+  if (!w.AppConfig || !w.AppConfig.basePath) {
+    return "";
+  }
+  return w.AppConfig.basePath;
+}
+
 export function intf(): EthProviderInterface {
   if (!_intfCache) {
     const i = _intf();

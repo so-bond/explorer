@@ -11,10 +11,15 @@ import App from './App.vue'
 import { createApp } from 'vue'
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+// import { registerPlugins } from '@/plugins'
+import { awaitInitialization } from './lib'
 
-const app = createApp(App)
+awaitInitialization(20000).then(async () => {
+  console.log("Initialization ready with config", (window as any).AppConfig);
+  const {registerPlugins} = await import('@/plugins')
+  
+  const app = createApp(App)
+  registerPlugins(app)
 
-registerPlugins(app)
-
-app.mount('#app')
+  app.mount('#app')
+})
