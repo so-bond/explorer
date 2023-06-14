@@ -1,13 +1,26 @@
 {
-  "_webfontloader-caef32fa.js": {
-    "file": "assets/webfontloader-caef32fa.js",
+  "VExpansionPanel.css": {
+    "file": "assets/VExpansionPanel-76edd37a.css",
+    "src": "VExpansionPanel.css"
+  },
+  "_VExpansionPanel-2fa8298c.js": {
+    "css": [
+      "assets/VExpansionPanel-76edd37a.css"
+    ],
+    "file": "assets/VExpansionPanel-2fa8298c.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_webfontloader-4e1d1357.js": {
+    "file": "assets/webfontloader-4e1d1357.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true
   },
   "index.css": {
-    "file": "assets/index-5bfb2cc9.css",
+    "file": "assets/index-d0a8fd0f.css",
     "src": "index.css"
   },
   "index.html": {
@@ -18,14 +31,15 @@
       "assets/materialdesignicons-webfont-bd725a7a.ttf"
     ],
     "css": [
-      "assets/index-5bfb2cc9.css"
+      "assets/index-d0a8fd0f.css"
     ],
     "dynamicImports": [
-      "_webfontloader-caef32fa.js",
+      "_webfontloader-4e1d1357.js",
       "src/layouts/default/Default.vue",
+      "src/views/Register.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-e841b02f.js",
+    "file": "assets/index-e52eba44.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -46,19 +60,43 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-14312d0e.js",
+    "file": "assets/Default-9b147295.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true,
     "src": "src/layouts/default/Default.vue"
   },
+  "src/views/Home.css": {
+    "file": "assets/Home-06465182.css",
+    "src": "src/views/Home.css"
+  },
   "src/views/Home.vue": {
-    "file": "assets/Home-5431807e.js",
+    "css": [
+      "assets/Home-06465182.css"
+    ],
+    "file": "assets/Home-4a59996e.js",
     "imports": [
-      "index.html"
+      "index.html",
+      "_VExpansionPanel-2fa8298c.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
+  },
+  "src/views/Register.css": {
+    "file": "assets/Register-69948682.css",
+    "src": "src/views/Register.css"
+  },
+  "src/views/Register.vue": {
+    "css": [
+      "assets/Register-69948682.css"
+    ],
+    "file": "assets/Register-8b92c9b4.js",
+    "imports": [
+      "_VExpansionPanel-2fa8298c.js",
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/views/Register.vue"
   }
 }

@@ -1,0 +1,1 @@
+import{d as e,u as c,r as l,o as t,c as a,w as o,a as n,V as p,b as m}from"./index-e52eba44.js";const f=e({__name:"View",setup(s){return console.log("Default.vue",c().name),(r,_)=>{const u=l("router-view");return t(),a(p,null,{default:o(()=>[n(u)]),_:1})}}}),d=e({__name:"Default",setup(s){return(r,_)=>(t(),a(m,null,{default:o(()=>[n(f)]),_:1}))}});export{d as default};
