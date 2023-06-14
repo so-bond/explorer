@@ -27,7 +27,7 @@ const routes = [
     ],
   },
   {
-    path: '/:any', redirect: (to: { params: { any: any } }) => {
+    path: '/:any', redirect: () => {
       return { 
         path:'/', 
         // query:{path: to.params.any}
