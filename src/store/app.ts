@@ -1,5 +1,5 @@
 // Utilities
-import { awaitInitialization, listRegisters, RegisterId } from '@/lib'
+import { awaitInitialization, listRegisters, RegisterId, listTrades, TradeBase } from '@/lib'
 import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', {
@@ -7,13 +7,22 @@ export const useAppStore = defineStore('app', {
     // @type: RegisterId[]
     registers: [] as RegisterId[],
     selectedRegister: undefined as string|undefined,
+
+    trades: [] as TradeBase[],
   }),
 
   actions: {
     async loadRegisters() {
-      await awaitInitialization(3000);
+      await awaitInitialization();
       const l = await listRegisters();
       this.registers = l;
+      
     },
+    async loadTrades() {
+      await awaitInitialization();
+      if (this.trades.length==0) {
+        this.trades = await listTrades();
+      }
+    }
   },
 })

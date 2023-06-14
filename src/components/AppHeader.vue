@@ -7,9 +7,9 @@
       
     >
       <v-app-bar-nav-icon @click="$router.push('/')"></v-app-bar-nav-icon>
-      <v-img inline :width="100" 
+      <img class="pa-8" height="100"
         src="https://raw.githubusercontent.com/so-bond/.github/main/images/so%7Cbond.svg"
-      ></v-img>
+      ><img>
       <v-toolbar-title> explorer - {{ $route.meta.title }}</v-toolbar-title>
 
       <v-spacer></v-spacer>

@@ -3,6 +3,11 @@
 export enum RegisterStatus {
   Draft, Ready, Issued, Repaid, Frozen
 }
+
+export enum TradeStatus {
+  Draft, Pending, Rejected, Accepted, Executed, Paid
+}
+
 export interface RegisterId {
   address: string;
   name: string;
@@ -23,6 +28,17 @@ export interface RegisterDetails extends RegisterId {
   cutOffTime: Date;
   currentSnapshotTimestamp: Date;
   currentCouponDate: Date;
+}
+
+export interface TradeBase {
+  address: string;
+  register?: string;
+  codehash?: string;
+  approvedInRegister?: boolean;
+  status: TradeStatus;
+  buyer: string;
+  seller: string;
+  quantity: number;
 }
 
 export interface DecodedEvent {

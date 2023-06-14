@@ -4,7 +4,7 @@ import { EthProviderInterface } from "@saturn-chain/dlt-tx-data-functions";
 import AllContracts from "./contracts";
 import { Web3FunctionProvider } from "@saturn-chain/web3-functions";
 import { EventFunction } from "@saturn-chain/smart-contract";
-import { DecodedEvent, InvestorInfo, RegisterDetails, RegisterId } from "./types";
+import { DecodedEvent, InvestorInfo, RegisterDetails, RegisterId, TradeBase, TradeStatus } from "./types";
 import { cleanReturnValues, hexToString } from "./utils";
 
 export * from "./types";
@@ -46,7 +46,7 @@ function _intf(): EthProviderInterface|undefined {
 }
 
 const awaitingSteps= 10;
-export async function awaitInitialization(timeout: number) {
+export async function awaitInitialization(timeout: number=3000) {
   const w: any = window;
   if (!w.AppConfig) { // Not initialized yet
     if (timeout <= 0) throw new Error("Timeout waiting for initialization");
@@ -170,4 +170,35 @@ export async function getRegisterInvestors(address: string): Promise<InvestorInf
     }
   }));
   return investors;
+}
+
+export async function listTrades(): Promise<TradeBase[]> {
+  const tradeContract = getTradeContract();
+  const registerContract = getRegisterContract()
+
+  const events = await loadEvents(tradeContract.events.NotifyTrade, fromBlock(), {});
+  const trades: Record<string, TradeBase> = {};
+  for (const ev of events) {
+    trades[ev.address]  = {
+      address: ev.address, 
+      status: Number.parseInt(ev.returnValues.status),
+      seller: ev.returnValues.seller,
+      buyer: ev.returnValues.buyer,
+      quantity: ev.returnValues.quantity
+    }
+  }
+  const array = Object.values(trades);
+  await Promise.all(array.map(async t=>{
+    const instance = tradeContract.at(t.address);
+    t.register = await instance.register(intf().call());
+    if (t.register && t.register != ZeroAddress) {
+      const r = registerContract.at(t.register)
+      t.codehash = await r.atReturningHash(intf().call(), t.address)
+      if (t.codehash) {
+        t.approvedInRegister = await r._contractsAllowed(intf().call(), t.codehash)        
+      }
+    }
+  }));
+
+  return array;
 }
