@@ -1,18 +1,46 @@
 {
+  "RegisterDetails.css": {
+    "file": "assets/RegisterDetails-fff5c8ae.css",
+    "src": "RegisterDetails.css"
+  },
+  "VAvatar.css": {
+    "file": "assets/VAvatar-09953c0c.css",
+    "src": "VAvatar.css"
+  },
   "VExpansionPanel.css": {
-    "file": "assets/VExpansionPanel-76edd37a.css",
+    "file": "assets/VExpansionPanel-22ac37b6.css",
     "src": "VExpansionPanel.css"
   },
-  "_VExpansionPanel-393e64e2.js": {
+  "_RegisterDetails-dac24592.js": {
     "css": [
-      "assets/VExpansionPanel-76edd37a.css"
+      "assets/RegisterDetails-fff5c8ae.css"
     ],
-    "file": "assets/VExpansionPanel-393e64e2.js",
+    "file": "assets/RegisterDetails-dac24592.js",
+    "imports": [
+      "index.html",
+      "_VAvatar-bfbdc13b.js",
+      "_index-ce508271.js"
+    ]
+  },
+  "_VAvatar-bfbdc13b.js": {
+    "css": [
+      "assets/VAvatar-09953c0c.css"
+    ],
+    "file": "assets/VAvatar-bfbdc13b.js",
     "imports": [
       "index.html"
     ]
   },
-  "_index-681a1f42.js": {
+  "_VExpansionPanel-cbfdacbc.js": {
+    "css": [
+      "assets/VExpansionPanel-22ac37b6.css"
+    ],
+    "file": "assets/VExpansionPanel-cbfdacbc.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_index-ce508271.js": {
     "assets": [
       "assets/materialdesignicons-webfont-861aea05.eot",
       "assets/materialdesignicons-webfont-e52d60f6.woff2",
@@ -23,19 +51,20 @@
       "assets/index-54d0f776.css"
     ],
     "dynamicImports": [
-      "_webfontloader-a0cf1686.js",
+      "_webfontloader-8bd4776f.js",
       "src/layouts/default/Default.vue",
       "src/views/Register.vue",
+      "src/views/Trade.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-681a1f42.js",
+    "file": "assets/index-ce508271.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true
   },
-  "_webfontloader-a0cf1686.js": {
-    "file": "assets/webfontloader-a0cf1686.js",
+  "_webfontloader-8bd4776f.js": {
+    "file": "assets/webfontloader-8bd4776f.js",
     "imports": [
       "index.html"
     ],
@@ -50,9 +79,9 @@
       "assets/index-366b9db6.css"
     ],
     "dynamicImports": [
-      "_index-681a1f42.js"
+      "_index-ce508271.js"
     ],
-    "file": "assets/index-272744bb.js",
+    "file": "assets/index-2e40c82e.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -73,9 +102,9 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-b05a2dbb.js",
+    "file": "assets/Default-174742e3.js",
     "imports": [
-      "_index-681a1f42.js",
+      "_index-ce508271.js",
       "index.html"
     ],
     "isDynamicEntry": true,
@@ -89,30 +118,44 @@
     "css": [
       "assets/Home-06465182.css"
     ],
-    "file": "assets/Home-6b22cfbf.js",
+    "file": "assets/Home-8b2118a4.js",
     "imports": [
-      "_index-681a1f42.js",
+      "_index-ce508271.js",
       "index.html",
-      "_VExpansionPanel-393e64e2.js"
+      "_VAvatar-bfbdc13b.js",
+      "_VExpansionPanel-cbfdacbc.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
   },
   "src/views/Register.css": {
-    "file": "assets/Register-69948682.css",
+    "file": "assets/Register-2d6f4ba2.css",
     "src": "src/views/Register.css"
   },
   "src/views/Register.vue": {
     "css": [
-      "assets/Register-69948682.css"
+      "assets/Register-2d6f4ba2.css"
     ],
-    "file": "assets/Register-4ff4efda.js",
+    "file": "assets/Register-a1f496cc.js",
     "imports": [
+      "_RegisterDetails-dac24592.js",
       "index.html",
-      "_VExpansionPanel-393e64e2.js",
-      "_index-681a1f42.js"
+      "_index-ce508271.js",
+      "_VAvatar-bfbdc13b.js",
+      "_VExpansionPanel-cbfdacbc.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Register.vue"
+  },
+  "src/views/Trade.vue": {
+    "file": "assets/Trade-b692c392.js",
+    "imports": [
+      "_RegisterDetails-dac24592.js",
+      "index.html",
+      "_index-ce508271.js",
+      "_VAvatar-bfbdc13b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/views/Trade.vue"
   }
 }
