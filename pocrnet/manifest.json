@@ -11,36 +11,36 @@
     "file": "assets/VExpansionPanel-22ac37b6.css",
     "src": "VExpansionPanel.css"
   },
-  "_RegisterDetails-507e4e1d.js": {
+  "_RegisterDetails-2dce2001.js": {
     "css": [
       "assets/RegisterDetails-fff5c8ae.css"
     ],
-    "file": "assets/RegisterDetails-507e4e1d.js",
+    "file": "assets/RegisterDetails-2dce2001.js",
     "imports": [
       "index.html",
-      "_VAvatar-b4320e62.js",
-      "_index-539829ba.js"
+      "_VAvatar-cff32ef8.js",
+      "_index-d3e188c1.js"
     ]
   },
-  "_VAvatar-b4320e62.js": {
+  "_VAvatar-cff32ef8.js": {
     "css": [
       "assets/VAvatar-09953c0c.css"
     ],
-    "file": "assets/VAvatar-b4320e62.js",
+    "file": "assets/VAvatar-cff32ef8.js",
     "imports": [
       "index.html"
     ]
   },
-  "_VExpansionPanel-13519021.js": {
+  "_VExpansionPanel-fbd74050.js": {
     "css": [
       "assets/VExpansionPanel-22ac37b6.css"
     ],
-    "file": "assets/VExpansionPanel-13519021.js",
+    "file": "assets/VExpansionPanel-fbd74050.js",
     "imports": [
       "index.html"
     ]
   },
-  "_index-539829ba.js": {
+  "_index-d3e188c1.js": {
     "assets": [
       "assets/materialdesignicons-webfont-861aea05.eot",
       "assets/materialdesignicons-webfont-e52d60f6.woff2",
@@ -51,20 +51,20 @@
       "assets/index-54d0f776.css"
     ],
     "dynamicImports": [
-      "_webfontloader-bd4095f3.js",
+      "_webfontloader-bbcde7d9.js",
       "src/layouts/default/Default.vue",
       "src/views/Register.vue",
       "src/views/Trade.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-539829ba.js",
+    "file": "assets/index-d3e188c1.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true
   },
-  "_webfontloader-bd4095f3.js": {
-    "file": "assets/webfontloader-bd4095f3.js",
+  "_webfontloader-bbcde7d9.js": {
+    "file": "assets/webfontloader-bbcde7d9.js",
     "imports": [
       "index.html"
     ],
@@ -79,9 +79,9 @@
       "assets/index-366b9db6.css"
     ],
     "dynamicImports": [
-      "_index-539829ba.js"
+      "_index-d3e188c1.js"
     ],
-    "file": "assets/index-3f003b78.js",
+    "file": "assets/index-cb3e1316.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -102,9 +102,9 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-c3e05ee6.js",
+    "file": "assets/Default-418bd6cd.js",
     "imports": [
-      "_index-539829ba.js",
+      "_index-d3e188c1.js",
       "index.html"
     ],
     "isDynamicEntry": true,
@@ -118,42 +118,42 @@
     "css": [
       "assets/Home-06465182.css"
     ],
-    "file": "assets/Home-d6aecf4e.js",
+    "file": "assets/Home-63a39158.js",
     "imports": [
-      "_index-539829ba.js",
+      "_index-d3e188c1.js",
       "index.html",
-      "_VAvatar-b4320e62.js",
-      "_VExpansionPanel-13519021.js"
+      "_VAvatar-cff32ef8.js",
+      "_VExpansionPanel-fbd74050.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
   },
   "src/views/Register.css": {
-    "file": "assets/Register-2d6f4ba2.css",
+    "file": "assets/Register-2a16abe7.css",
     "src": "src/views/Register.css"
   },
   "src/views/Register.vue": {
     "css": [
-      "assets/Register-2d6f4ba2.css"
+      "assets/Register-2a16abe7.css"
     ],
-    "file": "assets/Register-d50ae88b.js",
+    "file": "assets/Register-9346cbd8.js",
     "imports": [
-      "_RegisterDetails-507e4e1d.js",
+      "_RegisterDetails-2dce2001.js",
       "index.html",
-      "_index-539829ba.js",
-      "_VAvatar-b4320e62.js",
-      "_VExpansionPanel-13519021.js"
+      "_index-d3e188c1.js",
+      "_VAvatar-cff32ef8.js",
+      "_VExpansionPanel-fbd74050.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Register.vue"
   },
   "src/views/Trade.vue": {
-    "file": "assets/Trade-deee67cc.js",
+    "file": "assets/Trade-d8b18d04.js",
     "imports": [
-      "_RegisterDetails-507e4e1d.js",
+      "_RegisterDetails-2dce2001.js",
       "index.html",
-      "_index-539829ba.js",
-      "_VAvatar-b4320e62.js"
+      "_index-d3e188c1.js",
+      "_VAvatar-cff32ef8.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Trade.vue"
