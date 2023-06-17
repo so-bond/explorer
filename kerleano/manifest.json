@@ -11,36 +11,36 @@
     "file": "assets/VExpansionPanel-22ac37b6.css",
     "src": "VExpansionPanel.css"
   },
-  "_RegisterDetails-dac24592.js": {
+  "_RegisterDetails-9aae2bb4.js": {
     "css": [
       "assets/RegisterDetails-fff5c8ae.css"
     ],
-    "file": "assets/RegisterDetails-dac24592.js",
+    "file": "assets/RegisterDetails-9aae2bb4.js",
     "imports": [
       "index.html",
-      "_VAvatar-bfbdc13b.js",
-      "_index-ce508271.js"
+      "_VAvatar-841a810e.js",
+      "_index-1400d64e.js"
     ]
   },
-  "_VAvatar-bfbdc13b.js": {
+  "_VAvatar-841a810e.js": {
     "css": [
       "assets/VAvatar-09953c0c.css"
     ],
-    "file": "assets/VAvatar-bfbdc13b.js",
+    "file": "assets/VAvatar-841a810e.js",
     "imports": [
       "index.html"
     ]
   },
-  "_VExpansionPanel-cbfdacbc.js": {
+  "_VExpansionPanel-3da393ea.js": {
     "css": [
       "assets/VExpansionPanel-22ac37b6.css"
     ],
-    "file": "assets/VExpansionPanel-cbfdacbc.js",
+    "file": "assets/VExpansionPanel-3da393ea.js",
     "imports": [
       "index.html"
     ]
   },
-  "_index-ce508271.js": {
+  "_index-1400d64e.js": {
     "assets": [
       "assets/materialdesignicons-webfont-861aea05.eot",
       "assets/materialdesignicons-webfont-e52d60f6.woff2",
@@ -51,20 +51,20 @@
       "assets/index-54d0f776.css"
     ],
     "dynamicImports": [
-      "_webfontloader-8bd4776f.js",
+      "_webfontloader-cc4464fc.js",
       "src/layouts/default/Default.vue",
       "src/views/Register.vue",
       "src/views/Trade.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-ce508271.js",
+    "file": "assets/index-1400d64e.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true
   },
-  "_webfontloader-8bd4776f.js": {
-    "file": "assets/webfontloader-8bd4776f.js",
+  "_webfontloader-cc4464fc.js": {
+    "file": "assets/webfontloader-cc4464fc.js",
     "imports": [
       "index.html"
     ],
@@ -79,9 +79,9 @@
       "assets/index-366b9db6.css"
     ],
     "dynamicImports": [
-      "_index-ce508271.js"
+      "_index-1400d64e.js"
     ],
-    "file": "assets/index-2e40c82e.js",
+    "file": "assets/index-20f0f96a.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -102,9 +102,9 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-174742e3.js",
+    "file": "assets/Default-660fce0e.js",
     "imports": [
-      "_index-ce508271.js",
+      "_index-1400d64e.js",
       "index.html"
     ],
     "isDynamicEntry": true,
@@ -118,12 +118,12 @@
     "css": [
       "assets/Home-06465182.css"
     ],
-    "file": "assets/Home-8b2118a4.js",
+    "file": "assets/Home-b2aa3737.js",
     "imports": [
-      "_index-ce508271.js",
+      "_index-1400d64e.js",
       "index.html",
-      "_VAvatar-bfbdc13b.js",
-      "_VExpansionPanel-cbfdacbc.js"
+      "_VAvatar-841a810e.js",
+      "_VExpansionPanel-3da393ea.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
@@ -136,24 +136,24 @@
     "css": [
       "assets/Register-2d6f4ba2.css"
     ],
-    "file": "assets/Register-a1f496cc.js",
+    "file": "assets/Register-a6713254.js",
     "imports": [
-      "_RegisterDetails-dac24592.js",
+      "_RegisterDetails-9aae2bb4.js",
       "index.html",
-      "_index-ce508271.js",
-      "_VAvatar-bfbdc13b.js",
-      "_VExpansionPanel-cbfdacbc.js"
+      "_index-1400d64e.js",
+      "_VAvatar-841a810e.js",
+      "_VExpansionPanel-3da393ea.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Register.vue"
   },
   "src/views/Trade.vue": {
-    "file": "assets/Trade-b692c392.js",
+    "file": "assets/Trade-68a685f1.js",
     "imports": [
-      "_RegisterDetails-dac24592.js",
+      "_RegisterDetails-9aae2bb4.js",
       "index.html",
-      "_index-ce508271.js",
-      "_VAvatar-bfbdc13b.js"
+      "_index-1400d64e.js",
+      "_VAvatar-841a810e.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Trade.vue"
