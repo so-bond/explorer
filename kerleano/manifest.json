@@ -11,36 +11,36 @@
     "file": "assets/VExpansionPanel-22ac37b6.css",
     "src": "VExpansionPanel.css"
   },
-  "_RegisterDetails-9aae2bb4.js": {
+  "_RegisterDetails-8b3a6e5c.js": {
     "css": [
       "assets/RegisterDetails-fff5c8ae.css"
     ],
-    "file": "assets/RegisterDetails-9aae2bb4.js",
+    "file": "assets/RegisterDetails-8b3a6e5c.js",
     "imports": [
       "index.html",
-      "_VAvatar-841a810e.js",
-      "_index-1400d64e.js"
+      "_VAvatar-bdf578ad.js",
+      "_index-9affb93b.js"
     ]
   },
-  "_VAvatar-841a810e.js": {
+  "_VAvatar-bdf578ad.js": {
     "css": [
       "assets/VAvatar-09953c0c.css"
     ],
-    "file": "assets/VAvatar-841a810e.js",
+    "file": "assets/VAvatar-bdf578ad.js",
     "imports": [
       "index.html"
     ]
   },
-  "_VExpansionPanel-3da393ea.js": {
+  "_VExpansionPanel-a8e2b258.js": {
     "css": [
       "assets/VExpansionPanel-22ac37b6.css"
     ],
-    "file": "assets/VExpansionPanel-3da393ea.js",
+    "file": "assets/VExpansionPanel-a8e2b258.js",
     "imports": [
       "index.html"
     ]
   },
-  "_index-1400d64e.js": {
+  "_index-9affb93b.js": {
     "assets": [
       "assets/materialdesignicons-webfont-861aea05.eot",
       "assets/materialdesignicons-webfont-e52d60f6.woff2",
@@ -51,20 +51,20 @@
       "assets/index-54d0f776.css"
     ],
     "dynamicImports": [
-      "_webfontloader-cc4464fc.js",
+      "_webfontloader-19e9a24d.js",
       "src/layouts/default/Default.vue",
       "src/views/Register.vue",
       "src/views/Trade.vue",
       "src/views/Home.vue"
     ],
-    "file": "assets/index-1400d64e.js",
+    "file": "assets/index-9affb93b.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true
   },
-  "_webfontloader-cc4464fc.js": {
-    "file": "assets/webfontloader-cc4464fc.js",
+  "_webfontloader-19e9a24d.js": {
+    "file": "assets/webfontloader-19e9a24d.js",
     "imports": [
       "index.html"
     ],
@@ -79,9 +79,9 @@
       "assets/index-366b9db6.css"
     ],
     "dynamicImports": [
-      "_index-1400d64e.js"
+      "_index-9affb93b.js"
     ],
-    "file": "assets/index-20f0f96a.js",
+    "file": "assets/index-2d0a5e3d.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -102,9 +102,9 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "src/layouts/default/Default.vue": {
-    "file": "assets/Default-660fce0e.js",
+    "file": "assets/Default-7de5d057.js",
     "imports": [
-      "_index-1400d64e.js",
+      "_index-9affb93b.js",
       "index.html"
     ],
     "isDynamicEntry": true,
@@ -118,12 +118,12 @@
     "css": [
       "assets/Home-06465182.css"
     ],
-    "file": "assets/Home-b2aa3737.js",
+    "file": "assets/Home-8ee06819.js",
     "imports": [
-      "_index-1400d64e.js",
+      "_index-9affb93b.js",
       "index.html",
-      "_VAvatar-841a810e.js",
-      "_VExpansionPanel-3da393ea.js"
+      "_VAvatar-bdf578ad.js",
+      "_VExpansionPanel-a8e2b258.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Home.vue"
@@ -136,24 +136,24 @@
     "css": [
       "assets/Register-2d6f4ba2.css"
     ],
-    "file": "assets/Register-a6713254.js",
+    "file": "assets/Register-7e48f4c5.js",
     "imports": [
-      "_RegisterDetails-9aae2bb4.js",
+      "_RegisterDetails-8b3a6e5c.js",
       "index.html",
-      "_index-1400d64e.js",
-      "_VAvatar-841a810e.js",
-      "_VExpansionPanel-3da393ea.js"
+      "_index-9affb93b.js",
+      "_VAvatar-bdf578ad.js",
+      "_VExpansionPanel-a8e2b258.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Register.vue"
   },
   "src/views/Trade.vue": {
-    "file": "assets/Trade-68a685f1.js",
+    "file": "assets/Trade-3950ba25.js",
     "imports": [
-      "_RegisterDetails-9aae2bb4.js",
+      "_RegisterDetails-8b3a6e5c.js",
       "index.html",
-      "_index-1400d64e.js",
-      "_VAvatar-841a810e.js"
+      "_index-9affb93b.js",
+      "_VAvatar-bdf578ad.js"
     ],
     "isDynamicEntry": true,
     "src": "src/views/Trade.vue"
