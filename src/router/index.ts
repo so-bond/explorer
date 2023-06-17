@@ -57,7 +57,11 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
   console.log('Navigation from', from, 'to', to)
-  return true;
+  if (to.query.p) {
+    return { path: to.query.p as string, replace: true}
+  } else {
+    return true;
+  }
 })
 
 
