@@ -21,13 +21,13 @@
   <v-container>
     <RegisterDetails :address="register" />
     <v-card class="mt-8">
-      <v-card-subtitle>Trade address: {{ address }}<expl type="address" :id="address"/></v-card-subtitle>
+      <v-card-subtitle>Trade address: {{ address }}<expl type="account" :id="address"/></v-card-subtitle>
       <v-card-text v-if="trade">
         <v-row>
           <v-col class="v-col-4 v-col-lg-2">Seller:</v-col>
-          <v-col class="v-col-8 v-col-lg-4">{{ ellipsisAddress(trade.seller) }}<expl type="address" :id="trade.seller"/></v-col>
+          <v-col class="v-col-8 v-col-lg-4">{{ ellipsisAddress(trade.seller) }}<expl type="account" :id="trade.seller"/></v-col>
           <v-col class="v-col-4 v-col-lg-2">Buyer:</v-col>
-          <v-col class="v-col-8 v-col-lg-4">{{ ellipsisAddress(trade.buyer) }}<expl type="address" :id="trade.buyer"/></v-col>
+          <v-col class="v-col-8 v-col-lg-4">{{ ellipsisAddress(trade.buyer) }}<expl type="account" :id="trade.buyer"/></v-col>
           <v-col class="v-col-4 v-col-lg-2">Status:</v-col>
           <v-col class="v-col-8 v-col-lg-4">{{ TradeStatus[trade.status] }}</v-col>
           <v-col class="v-col-4 v-col-lg-2">Quantity:</v-col>
