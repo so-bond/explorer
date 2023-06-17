@@ -2,6 +2,7 @@
   import { to1000s } from '@/lib/utils';
   import { RegisterDetails, getRegisterDetails, InvestorInfo, getRegisterInvestors } from '@/lib';
   import { Ref, onMounted, ref, watch } from 'vue';
+  import expl from "@/components/ExplorerRedirect.vue"
 
   const props = defineProps({
     address: String,
@@ -52,16 +53,16 @@
     >
     <thead>
       <tr>
-        <th>controlled by</th>
-        <th>holder address</th>
-        <th>balance</th>
+        <th>Registered by</th>
+        <th>Holder address</th>
+        <th class="align-end">Balance</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="investor of investors" :key="investor.address">
-        <td class="text-caption">{{ investor.custodian }}</td>
-        <td class="text-caption" :class="investor.allowed?'':'text-decoration-line-through'">{{ investor.address }}</td>
-        <td class="text-caption">{{ to1000s(investor.balance * details.unitValue) }} {{ details.currency }}</td>
+        <td class="text-caption align-center">{{ investor.custodian }}</td>
+        <td class="text-caption align-center" :class="investor.allowed?'':'text-decoration-line-through'">{{ investor.address }}<expl type="account" :id="investor.address" /></td>
+        <td class="text-caption align-end">{{ to1000s(investor.balance * details.unitValue) }} {{ details.currency }}</td>
       </tr>
     </tbody>
   </table>
@@ -74,5 +75,11 @@
   }
   tr {
     border-bottom: 1px solid #000000;
+  }
+  .align-center {
+    text-align: center;
+  }
+  .align-end {
+    text-align: end;
   }
 </style>

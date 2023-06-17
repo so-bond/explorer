@@ -11,7 +11,7 @@
     "@mdi/font": "7.0.96",
     "@saturn-chain/dlt-tx-data-functions": "^1.0.9",
     "@saturn-chain/smart-contract": "^1.0.19",
-    "@saturn-chain/web3-functions": "^1.0.13",
+    "@saturn-chain/web3-functions": "^1.0.14",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "vite-plugin-node-stdlib-browser": "^0.2.1",

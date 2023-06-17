@@ -41,7 +41,7 @@ function _intf(): EthProviderInterface|undefined {
   if (!w.AppConfig || !w.AppConfig.rpcUrl) {
     return undefined;
   }
-  const i = new Web3FunctionProvider(w.AppConfig.rpcUrl, () => Promise.resolve(ZeroAddress))
+  const i = new Web3FunctionProvider(w.AppConfig.rpcUrl, () => Promise.resolve(ZeroAddress), {queryAccounts: false})
   return i;
 }
 
