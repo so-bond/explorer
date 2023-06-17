@@ -14,13 +14,13 @@ import { createApp } from 'vue'
 // import { registerPlugins } from '@/plugins'
 import { awaitInitialization } from './lib'
 
-const qry = new URLSearchParams(window.location.search);
-// if the path is constructed by the 404.html page, redirect to the correct path
-if (qry.has('p') && qry.get('p')?.startsWith('/')) {
-  const url = new URL(`.${qry.get('p')}`, window.location.href);
-  console.log("Redirecting to", url.href);
-  window.location.href = url.href;
-} else {
+// const qry = new URLSearchParams(window.location.search);
+// // if the path is constructed by the 404.html page, redirect to the correct path
+// if (qry.has('p') && qry.get('p')?.startsWith('/')) {
+//   const url = new URL(`.${qry.get('p')}`, window.location.href);
+//   console.log("Redirecting to", url.href);
+//   window.location.href = url.href;
+// } else {
   // the path is the target path, so we can start the app
   awaitInitialization(20000).then(async () => {
     console.log("Initialization ready with config", (window as any).AppConfig);
@@ -31,4 +31,4 @@ if (qry.has('p') && qry.get('p')?.startsWith('/')) {
   
     app.mount('#app')
   })
-}
+// }
