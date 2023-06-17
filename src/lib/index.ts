@@ -1,25 +1,26 @@
 
 import { EventData } from "web3-eth-contract";
 import { EthProviderInterface } from "@saturn-chain/dlt-tx-data-functions";
-import AllContracts from "./contracts";
+// import AllContracts from "./contracts";
 import { Web3FunctionProvider } from "@saturn-chain/web3-functions";
 import { EventFunction } from "@saturn-chain/smart-contract";
 import { DecodedEvent, InvestorInfo, RegisterDetails, RegisterId, TradeBase, TradeDetails, TradeStatus } from "./types";
 import { cleanReturnValues, hexToString } from "./utils";
 
+import AllContracts from "./so-bond";
+
 export * from "./types";
 
 const ContractNames = {
-  Register: "Register",
+  IRegister: "IRegister",
   ITrade: "ITrade",
-  ICoupon: "ICoupon",
-  ICouponSnapshotManagement: "ICouponSnapshotManagement",
+  ICoupon: "ICoupon", // Not available yet
 }
 
 const ZeroAddress = "0x0000000000000000000000000000000000000000";
 
 export function getRegisterContract() {
-  return AllContracts.get(ContractNames.Register)
+  return AllContracts.get(ContractNames.IRegister)
 }
 
 export function getTradeContract() {
@@ -28,10 +29,6 @@ export function getTradeContract() {
 
 export function getCouponContract() {
   return AllContracts.get(ContractNames.ICoupon)
-}
-
-export function getSnapshotContract() {
-  return AllContracts.get(ContractNames.ICouponSnapshotManagement)
 }
 
 
@@ -113,13 +110,12 @@ export async function listRegisters(): Promise<RegisterId[]> {
 
 export async function getRegisterDetails(address: string): Promise<RegisterDetails> {
   const register = getRegisterContract().at(address);
-  const snapshot = getSnapshotContract().at(address);
   const [status, data, totalSupply, currentTimestamp, currentCoupon] = await Promise.all([
     register.status(intf().call()),
     register.getBondData(intf().call()),
     register.totalSupply(intf().call()),
-    snapshot.currentSnapshotDatetime(intf().call()),
-    snapshot.currentCouponDate(intf().call()),
+    register.currentSnapshotDatetime(intf().call()),
+    register.currentCouponDate(intf().call()),
   ]);
 
   return {

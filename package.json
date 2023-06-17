@@ -12,6 +12,7 @@
     "@saturn-chain/dlt-tx-data-functions": "^1.0.9",
     "@saturn-chain/smart-contract": "^1.0.19",
     "@saturn-chain/web3-functions": "^1.0.14",
+    "@so-bond/interfaces": "github:so-bond/interfaces",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "vite-plugin-node-stdlib-browser": "^0.2.1",
