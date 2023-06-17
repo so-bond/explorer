@@ -41,6 +41,10 @@ export interface TradeBase {
   quantity: number;
 }
 
+export interface TradeDetails extends TradeBase {
+  price: number;
+  paymentId: string;
+}
 export interface DecodedEvent {
   id: string;
   blockNumber: number;

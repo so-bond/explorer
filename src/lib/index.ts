@@ -4,7 +4,7 @@ import { EthProviderInterface } from "@saturn-chain/dlt-tx-data-functions";
 import AllContracts from "./contracts";
 import { Web3FunctionProvider } from "@saturn-chain/web3-functions";
 import { EventFunction } from "@saturn-chain/smart-contract";
-import { DecodedEvent, InvestorInfo, RegisterDetails, RegisterId, TradeBase, TradeStatus } from "./types";
+import { DecodedEvent, InvestorInfo, RegisterDetails, RegisterId, TradeBase, TradeDetails, TradeStatus } from "./types";
 import { cleanReturnValues, hexToString } from "./utils";
 
 export * from "./types";
@@ -144,7 +144,7 @@ export async function getRegisterDetails(address: string): Promise<RegisterDetai
 
 export async function loadEventsForRegister(address: string): Promise<DecodedEvent[]> {
   const register = getRegisterContract().at(address);
-  const events: EventData[] = await loadEvents(register.allEvents, fromBlock(), {});
+  const events: EventData[] = await loadEvents(register.allEvents, 0, {});
   
   
   function objToDisplay(obj: any): string {
@@ -180,9 +180,20 @@ export async function getRegisterInvestors(address: string): Promise<InvestorInf
   return investors;
 }
 
+async function fillTradeRegisterCodeHash(t: TradeBase): Promise<TradeBase> {
+  if (t.register && t.register != ZeroAddress) {
+    const registerContract = getRegisterContract()
+    const r = registerContract.at(t.register)
+    t.codehash = await r.atReturningHash(intf().call(), t.address)
+    if (t.codehash) {
+      t.approvedInRegister = await r._contractsAllowed(intf().call(), t.codehash)        
+    }
+  }
+  return t;
+}
+
 export async function listTrades(): Promise<TradeBase[]> {
   const tradeContract = getTradeContract();
-  const registerContract = getRegisterContract()
 
   const events = await loadEvents(tradeContract.events.NotifyTrade, fromBlock(), {});
   const trades: Record<string, TradeBase> = {};
@@ -199,14 +210,35 @@ export async function listTrades(): Promise<TradeBase[]> {
   await Promise.all(array.map(async t=>{
     const instance = tradeContract.at(t.address);
     t.register = await instance.register(intf().call());
-    if (t.register && t.register != ZeroAddress) {
-      const r = registerContract.at(t.register)
-      t.codehash = await r.atReturningHash(intf().call(), t.address)
-      if (t.codehash) {
-        t.approvedInRegister = await r._contractsAllowed(intf().call(), t.codehash)        
-      }
-    }
+    t = await fillTradeRegisterCodeHash(t);
   }));
 
   return array;
+}
+
+export async function getTradeDetails(address: string): Promise<TradeDetails> {
+  const trade = getTradeContract().at(address);
+
+  const [register, status, seller, details, paymentID] = await Promise.all([
+    trade.register(intf().call()),
+    trade.status(intf().call()),
+    trade.sellerAccount(intf().call()),
+    trade.getDetails(intf().call()),
+    trade.paymentID(intf().call())
+  ]);
+
+  const res: TradeDetails = {
+    address,
+    buyer: details.buyer,
+    paymentId: paymentID.slice(2).toUpperCase(),
+    price: Number.parseInt(details.price)/10000,
+    quantity: Number.parseInt(details.quantity),
+    seller: seller,
+    status: status,
+    register: register
+  };
+  const base = await fillTradeRegisterCodeHash(res);
+  res.codehash = base.codehash;
+  res.approvedInRegister = base.approvedInRegister
+  return res;
 }

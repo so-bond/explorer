@@ -21,22 +21,35 @@
           <VDataTableServer
             :headers="tradeHeaders"
             :items="store.trades"
+            :items-length="store.trades.length"
             class="elevation-1"
-            height="400"
+            :height="loading?100:undefined"
             item-value="name"
-            :loading="loading" :items-length="100"
-            
+            :loading="loading" 
+            :group-by="[{key:'register'}]"
           >
-          <template v-slot:item.register="{item}">
-            <router-link :to="`register/${item.value.register}`">{{ ellipsisAddress(item.value.register) }}</router-link>
+          <template v-slot:data-table-group="{item, props}">
+              <td colspan="6" @click="props.onClick()">
+                <VBtn
+                  size="small"
+                  variant="text"
+                  :icon="props.icon"
+                /> Register: <router-link :to="`register/${item.value}`">{{ item.value }}</router-link></td>
           </template>
+          
+          <!-- <template v-slot:item.register="{item}">
+            <router-link :to="`register/${item.value.register}`">{{ ellipsisAddress(item.value.register) }}</router-link>
+          </template> -->
           <template v-slot:item.actors="{item}">
             <div class="text-no-wrap">seller: {{ ellipsisAddress(item.value.seller) }}</div>
             <div class="text-no-wrap">buyer: {{ ellipsisAddress(item.value.buyer) }}</div>
           </template>
           <template v-slot:item.address="{item}">
-            <div class="text-no-wrap">address: {{ ellipsisAddress(item.value.address) }}</div>
+            <div class="text-no-wrap">address: <router-link :to="`trade/${item.value.address}`"> {{ ellipsisAddress(item.value.address) }}</router-link></div>
             <div class="text-no-wrap" :class="item.value.approvedInRegister?'':'striked'">hash: {{ ellipsisCodehash(item.value.codehash) }}</div>
+          </template>
+          <template v-slot:item.status="{item}">
+            <span>{{ TradeStatus[item.value.status] }}</span>
           </template>
           <template v-slot:item.quantity="{item}">
             <span>{{ to1000s(item.value.quantity) }}</span>
@@ -61,6 +74,7 @@
   import { computed, onMounted, ref } from "vue";
   import { to1000s, ellipsisAddress, ellipsisCodehash } from "@/lib/utils";
   import { DataTableHeader } from "@/lib/vuetify-types";
+import { TradeStatus } from "@/lib";
 
   // initiatlize the store
   const store = useAppStore();
@@ -74,12 +88,13 @@
   const loading = ref(true);
   const registerNames = computed(() => store.registers.map((r) => ({display: `${r.name} - (${r.isin})`, address: r.address})))
   const tradeHeaders : DataTableHeader[] = [
-    { title: "register", key: "register"},
-    { title: "buyer/seller", key: "actors"},
+    // { title: "Register", key: "register"},
+    { title: "Buyer/Seller", key: "actors"},
     // { title: "seller", key: "seller"},
     // { title: "buyer", key: "buyer"},
-    { title: "quantity", key: "quantity", align: "end"},
-    { title: "trade", key: "address"},
+    { title: "Quantity", key: "quantity", align: "end"},
+    { title: "Status", key: "status"},
+    { title: "Trade ID", key: "address"},
   ]
 
   // Functions
@@ -89,8 +104,17 @@
     store.selectedRegister=undefined;
   }
 
+  function goToTrade(address: string) {
+    if (address) router.push(`/trade/${address}`)
+  }
+
   function loadTrades() {
     loading.value = true;
     store.loadTrades().then(() => loading.value = false);
   }
+
+  function debug(info: any) {
+    console.log("Debug ", info);
+    
+  } 
 </script>
