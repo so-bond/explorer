@@ -15,6 +15,7 @@
   onMounted(() => {
     getTradeDetails(address).then(value=>trade.value=value)
   });
+
 </script>
 
 <template>

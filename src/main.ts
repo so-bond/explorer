@@ -4,17 +4,18 @@
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
+// AppInsights
+import { trackPageView } from '@/lib/track'
 // Components
 import App from './App.vue'
 
 // Composables
 import { createApp } from 'vue'
 
-// Plugins
-// import { registerPlugins } from '@/plugins'
 import { awaitInitialization } from './lib'
 
 awaitInitialization(20000).then(async () => {
+  trackPageView();
   console.log("Initialization ready with config", (window as any).AppConfig);
   const {registerPlugins} = await import('@/plugins')
   

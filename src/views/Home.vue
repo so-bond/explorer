@@ -68,6 +68,7 @@
 </style>
 
 <script lang="ts" setup>
+  import { trackEvent } from "@/lib/track"
   import {VDataTableServer} from "vuetify/labs/VDataTable"
   import router from "@/router";
   import {useAppStore} from "@/store/app";
@@ -109,6 +110,7 @@ import { TradeStatus } from "@/lib";
   }
 
   function loadTrades() {
+    trackEvent("home-trades");
     loading.value = true;
     store.loadTrades().then(() => loading.value = false);
   }

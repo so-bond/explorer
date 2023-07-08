@@ -1,3 +1,4 @@
+import { trackPageView } from '@/lib/track'
 // Composables
 import { basePath } from '@/lib';
 import { createRouter, createWebHistory } from 'vue-router'
@@ -60,6 +61,7 @@ router.beforeEach((to, from) => {
   if (to.query.p) {
     return { path: to.query.p as string, replace: true}
   } else {
+    trackPageView();
     return true;
   }
 })
